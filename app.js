@@ -27,6 +27,10 @@ app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] 
 // 导入并注册用户路由模块
 const userRouter = require('./router/user')
 app.use('/api', userRouter)
+// 导入并注册个人中心的路由模块
+const userinfoRouter = require('./router/userinfo');
+// /my开头的接口，都是有权限的接口，需要进行身份认证
+app.use('/my',userinfoRouter)
 // write your code here...
 // app.get('/a',(req,res)=>{
 // res.send('ok')
