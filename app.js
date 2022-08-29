@@ -35,6 +35,9 @@ app.use('/my',userinfoRouter)
 // app.get('/a',(req,res)=>{
 // res.send('ok')
 // })
+
+const artCateRouter = require('./router/artcate');
+app.use('/my/article',artCateRouter)
 // 全局错误级别中间件 在路由之后
 app.use(function (err, req,res, next) {
   if (err instanceof joi.ValidationError) {
