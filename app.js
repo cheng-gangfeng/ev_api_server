@@ -38,6 +38,12 @@ app.use('/my',userinfoRouter)
 
 const artCateRouter = require('./router/artcate');
 app.use('/my/article',artCateRouter)
+
+const articleRouter = require('./router/article');
+app.use('/my/article',articleRouter)
+app.use('/uploads',express.static('./uploads'))
+
+
 // 全局错误级别中间件 在路由之后
 app.use(function (err, req,res, next) {
   if (err instanceof joi.ValidationError) {
